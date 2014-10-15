@@ -1,10 +1,8 @@
 package br.com.rml.utils;
 
-import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
+import javax.persistence.Persistence
 
-import javax.persistence.Persistence;
+import br.com.rml.jpa.PersistenceUtils
 
 public class PersistenceTestUtils extends PersistenceUtils {
 
@@ -15,7 +13,7 @@ public class PersistenceTestUtils extends PersistenceUtils {
 	 */
 	public static void createEntityManagerForTest() {
 		if (entityManager != null) {
-			return;
+			return
 		}
 		Map<String, String> properties = new HashMap<String, String>();
 		properties.put("javax.persistence.jdbc.driver", "org.h2.Driver");

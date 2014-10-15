@@ -4,7 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat
 
 import org.junit.Test
 
-import br.com.rml.utils.PersistenceUtils
+import br.com.rml.jpa.ValidationException
 
 public class ParticipantTest extends DBTest {
 
@@ -19,6 +19,10 @@ public class ParticipantTest extends DBTest {
 	@Test
 	public void testInsertWithError() {
 		Participant participant = new Participant()
-		participant.save()
+		try{
+			participant.save()
+		}catch(ValidationException e){
+			assert  e.exceptions == ["name" :"não pode ser nulo"]
+		}
 	}
 }
